@@ -1,0 +1,85 @@
+body{
+    padding:0;
+    margin:0;
+    height:100%;
+}
+.header{
+    height:200px;
+    width:65%;
+    display:flex;
+    padding:10px;
+    justify-content: space-between;
+}
+
+.ist{
+    height:200px;
+    width:25%;
+}
+.post{
+    margin-left:550px;
+    height:20px;
+    font-size:110%;
+    margin-bottom: 0;
+    
+}
+.container {
+    
+    margin-left:250px;
+    margin-right:600px; 
+   
+}
+
+
+
+#videoForm{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+#submitButton {
+    padding: 10px;
+    font-size: 16px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    align-self: center;
+    margin-left: 50%;
+}
+.im2 {
+    width: 800px; 
+    margin-left:250px;
+    height:100px;
+}
+.im2 img {
+    width: 100%; /* Make the image fill the container width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+footer {
+    padding: 20px;
+    position: fixed; /* Fixed to the bottom */
+    left: 0;
+    bottom: 0;
+    width: 65%;
+    height:20px;
+    display:flex;
+    justify-content: space-between;
+    margin: 0 0 20px 0;
+}
+
+
+
+
+.logo a {
+    margin-right: 10px;
+    text-decoration: none;
+    color:black;
+}
+
+.logo a:last-child {
+    margin-right: 0;
+}
+
+.logo a:hover {
+    color:darkslategray;
+}

@@ -1,0 +1,97 @@
+*{
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar{
+    height:100px;
+    width:65%;
+    display:flex;
+    padding:10px;
+    
+}
+h1{
+    font-weight:10px;
+    font-size:35px;
+    font-family: Montserrat;
+}
+button{
+ height:60px;
+ width:90px;
+ margin-left: 350px;
+}
+.about{
+    height:60px;
+    padding:10px;
+}
+.hero {
+    height: 150px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 20px 0; /* Top, Right, Bottom, Left */
+}
+
+.prehead{
+    font-family:monospace;
+    font-size:25px;
+    padding:10px;
+
+    
+}
+.hero  {
+    padding:10px;
+    margin:10px;
+  }
+  
+.comment{
+    display: block;
+    margin-right: 350px;
+    width: 55%; 
+    height:250px;   
+}
+footer {
+    padding: 20px;
+    position: fixed; /* Fixed to the bottom */
+    left: 0;
+    bottom: 0;
+    width: 65%;
+    height:200px;
+    display:flex;
+    justify-content: space-between;
+    margin: 0 0 20px 0;
+}
+
+.im {
+    margin-bottom: 10px;
+}
+
+.mail {
+    text-decoration: none;
+    margin-right: 10px;
+    color:black;
+    font-size:17px;
+}
+
+.logo a {
+    margin-right: 10px;
+    text-decoration: none;
+    color:black;
+}
+
+.logo a:last-child {
+    margin-right: 0;
+}
+
+.logo a:hover {
+    color:darkslategray;
+}
+.postfoot{
+    display: flex;
+    flex-direction: column;
+    margin:15px;
+    justify-content: space-between;
+    
+}
+
+
