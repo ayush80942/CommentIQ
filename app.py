@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, request
 
 app = Flask(__name__)
 
@@ -8,6 +8,7 @@ def welcome():
 
 @app.route('/dashboard')
 def dashboard():
+    url = request.form.values
     return render_template("dashboard.html")
 
 if __name__ == '__main__':
