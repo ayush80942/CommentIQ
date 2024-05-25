@@ -81,7 +81,7 @@ Contributions are welcome! Please fork this repository and submit a pull request
 
 ## Contact
 
-For questions or support, please open an issue or contact [your_email@example.com](mailto:your_email@example.com).
+For questions or support, please open an issue or contact [ayushaggarwal8094@gmail.com](mailto:ayushaggarwal8094@gmail.com).
 
 ---
 
