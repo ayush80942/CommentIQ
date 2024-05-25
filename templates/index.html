@@ -4,66 +4,183 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="static/stylesheet/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <title>Browser</title>
+  <title>CommentIQ</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      font-family: 'Montserrat', sans-serif;
+      display: flex;
+      flex-direction: column;
+      background-color: #f9f9f9;
+    }
+    .navbar {
+      background-color: #333;
+      color: white;
+      padding: 1em;
+      text-align: left;
+      position: relative;
+    }
+    .navbar h1 {
+      margin: 0;
+      font-size: 2em;
+      display: inline-block;
+    }
+    .navbar form {
+      position: absolute;
+      right: 1em;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .navbar button {
+      background-color: black;
+      color: white;
+      border: none;
+      padding: 0.75em 1.5em;
+      cursor: pointer;
+      font-size: 1.1em;
+      border-radius: 8px;
+    }
+    .about {
+      padding: 2em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .about .about-text {
+      max-width: 50%;
+      text-align: left;
+    }
+    .about h1 {
+      font-size: 2.5em;
+      margin-bottom: 0.5em;
+      color: #333;
+    }
+    .about .about-text p {
+      font-family: 'Merriweather', serif;
+      font-size: 1.2em;
+      line-height: 1.6;
+      color: #555;
+    }
+    .about .comment-container {
+      max-width: 40%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .about img.comment {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    .hero {
+      flex: 1;
+      background: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2em;
+    }
+    .hero p {
+      max-width: 800px;
+      margin: 1em auto;
+      font-size: 1.2em;
+      line-height: 1.6;
+      color: #555;
+    }
+    footer {
+      background-color: #333;
+      color: white;
+      padding-top: 1em;
+    }
+    .postfoot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 1em;
+    }
+    .postfoot .im {
+      flex: 1;
+      text-align: left;
+      margin-left: 1em;
+    }
+    .postfoot .im a {
+      color: white;
+      text-decoration: none;
+    }
+    .postfoot .logo {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      gap: 1em;
+    }
+    .postfoot .logo a {
+      color: white;
+      font-size: 1.5em;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .postfoot .logo a:hover {
+      color: #ffdd57;
+    }
+    footer img {
+      max-width: 300px;
+      height: auto;
+      margin: 0 auto;
+      display: block;
+      margin-bottom: 1em;
+    }
+  </style>
 </head>
 
 <body>
   <div class="navbar">
-    <h1>
-      COMMENT SECTION ANALYSIS
-    </h1>
-    <form action="{{ url_for('dashboard') }}" method="get">
-      <button style="background-color: black; color: white">Try it</button>
+    <h1>CommentIQ</h1>
+    <form action="{{ url_for('dashboard') }}", method="get">
+      <button>Try it</button>
     </form>
   </div>
   <div class="about">
-    <h1>About Us</h1>
+    <div class="about-text">
+      <h1>About Us</h1>
+      <p>Welcome to CommentIQ, your go-to hub for insightful analysis of online discussions. We specialize in
+        deciphering the dynamics of comment sections across various digital platforms, uncovering trends, sentiments and behaviors
+        that shape online conversations. Leveraging advanced data analytics and machine learning
+        techniques, we provide in-depth insights tailored to your specific needs. From content creators to marketers and researchers, 
+        our comprehensive approach ensures a thorough understanding of comment landscapes, enabling you to drive engagement and foster
+        meaningful connections ethically. Join us in exploring the rich tapestry of online discourse and harness
+        the power of comment sections to make informed decisions and shape the digital landscape.
+      </p>
+    </div>
+    <div class="comment-container">
+      <img class="comment" src="https://www.repustate.com/blog/images/sentiment-analysis-for-youtube-comments.jpg" alt="comment">
+    </div>
   </div>
-  <a class="prehead">Subheading for description or instruction</a>
+  
   <div class="hero">
-
-    <p>Welcome to Comment Section Anaysis,your go-to hub for<br>
-      insightful anaysis of online discussions.We specialise in<br>
-      deciphering the dynamics of comment sections across various<br>
-      digital platforms,uncovering trends,sentiments and behaviors<br>
-      that shape online conversations.Leveraging advanced data<br> analytics and machine learning
-      techniques,we provide-in-depth <br>insights tailored to your specific needs. From
-      content creators to<br> marketers and researchers, our comprehensive approach <br>ensures a
-      thorough understanding of comment landscapes,<br> enabling you to drive engagement and foster
-      meaningful<br> connections ethically. Join us in exploring the rich tapestry of <br>online discourse and harness
-      the power of comment sections to <br>make informed decisions and shape the digital landscape.
-      Start<br> your journey with Comment Section Anaysis today!</p>
-    <a> <img class="comment" src="static/images/sentiment-analysis-for-youtube-comments.jpg" alt="comment"></a>
-    <div>
-
-      <footer>
-        <div class="postfoot">
-          <div class="im">
-            <a href="https://www.commentanalysis.com" class="mail">www.commentanalysis.com</a>
-
-          </div>
-          <div class="logo">
-            <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="facebook"><i class="fab fa-facebook"></i></a>
-            <a href="#" class="linkedin"><i class="fab fa-linkedin"></i></a>
-            <a href="#" class="youtube"><i class="fab fa-youtube"></i></a>
-            <!-- Use "github" class instead of "instagram" -->
-          </div>
-        </div>
-        <img src="static/images/4059220_1592205269_Untitled-2.jpg" alt="youtube">
-
-      </footer>
-
-
+    <p>Start your journey with CommentIQ today!</p>
+  </div>
+  <footer>
+    <div class="postfoot">
+     
+      <div class="logo">
+        <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="facebook"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="linkedin"><i class="fab fa-linkedin"></i></a>
+        <a href="#" class="youtube"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+    
+  </footer>
 </body>
-
-
 
 </html>

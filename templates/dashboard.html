@@ -1,41 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="static/stylesheet/style2.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <title>browser1</title>
-    
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+        }
+
+        .header {
+            height: 80px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .header h1 {
+            margin: 0;
+        }
+
+        .ist {
+            height: 100%;
+            width: auto;
+        }
+
+        .post {
+            text-align: center;
+            font-size: 1.2em;
+            margin: 7px 0;
+            color: #333;
+            font-family: 'Merriweather', serif;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        #videoForm {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        #videoUrl {
+            padding: 10px;
+            font-size: 1em;
+            width: 80%;
+            max-width: 500px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #videoUrl::placeholder {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        #submitButton {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #submitButton:hover {
+            background-color: #c0392b;
+        }
+
+        .results-container {
+            width: 80%;
+            max-width: 800px;
+            margin: 50px auto 20px;
+            /* Centered horizontally with auto margin */
+            padding: 20px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            background-color: #fff;
+            text-align: left;
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+        }
+
+        .results-container h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .results-container p {
+            font-size: 1.2em;
+            margin: 5px 0;
+        }
+
+        .im2 {
+            width: 80%;
+            max-width: 800px;
+            margin: 20px 0;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+        }
+
+        .im2 img {
+            width: 100%;
+            height: auto;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding-top: 1em;
+        }
+
+        .postfoot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 1em;
+        }
+
+        .postfoot .im {
+            flex: 1;
+            text-align: left;
+            margin-left: 1em;
+        }
+
+        .postfoot .im a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .postfoot .logo {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            gap: 1em;
+        }
+
+        .postfoot .logo a {
+            color: white;
+            font-size: 1.5em;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .postfoot .logo a:hover {
+            color: #ffdd57;
+        }
+
+        footer img {
+            max-width: 300px;
+            height: auto;
+            margin: 0 auto;
+            display: block;
+            margin-bottom: 1em;
+        }
+    </style>
 </head>
+
 <body>
-    <div class="header"><h1>COMMENT SECTION ANALYSIS</h1>
+    <div class="header">
+        <h1>CommentIQ</h1>
         <img class="ist" src="static/images/360_F_510553657_ArMDtslyj9TryEMl0Xg6fwSj7sQozvrU.jpg" alt="senti">
     </div>
     <div class="post">
         Enter the URL of your video
     </div>
-    <div class="container"> 
-            <form id="videoForm" action="/submit" method="post">
-                <input type="text" id="videoUrl" name="url" placeholder="Enter video URL">
-                <input type="submit" value="submit">
-            </form>
-    </div>
-    <div class="im2"><img class="2nd" src="static/images/zfql0dionx221.webp" alt="graph"></div>
-
-    <footer>
-        
-        
-        <div class="logo">
-          <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
-          <a href="#" class="facebook"><i class="fab fa-facebook"></i></a>
-          <a href="#" class="linkedin"><i class="fab fa-linkedin"></i></a>
-          <a href="#" class="youtube"><i class="fab fa-youtube"></i></a> <!-- Use "github" class instead of "instagram" -->
+    <div class="container">
+        <form id="videoForm" action="/submit" method="post">
+            <input type="text" id="videoUrl" name="url" placeholder="Enter video URL">
+            <input type="submit" value="submit">
+        </form>
+        <div class="results-container">
+            <h2>Analysis Results</h2>
+            <p>Total Number of Comments: <span id="totalComments"></span></p>
+            <p>Number of Positive Comments: <span id="positiveComments"></span></p>
+            <p>Number of Negative Comments: <span id="negativeComments"></span></p>
+            <p>Number of Neutral Comments: <span id="neutralComments"></span></p>
         </div>
-      </div>
-       
-    
-    </footer>
-      
+    </div>
+
+
 </body>
+
 </html>
