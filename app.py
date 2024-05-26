@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, request
+from flask import Flask, render_template, url_for, request, make_response
 import googleapiclient.discovery
 import numpy as np
 import pandas as pd
@@ -6,6 +6,11 @@ import nltk
 import pickle
 from dotenv import load_dotenv
 import os
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+import io
+import base64
 
 # Import functions for data preprocessing & data preparation
 from sklearn.preprocessing import LabelEncoder
@@ -116,10 +121,36 @@ def submit():
     positiveComments = np.count_nonzero(final_result == 2)
     neutralComments = np.count_nonzero(final_result == 1)
 
-    # Check the loaded data
-    # print(loaded_data)
+    categories = ['Positive', 'Negative', 'Neutral']
+    values = [positiveComments, negativeComments, neutralComments]  # Example values, you can replace these with your own data
 
-    return render_template("dashboard.html", totalComments = totalComments, negativeComments = negativeComments, positiveComments = positiveComments, neutralComments = neutralComments)
+    fig, ax = plt.subplots()
+    ax.bar(categories, values, color=['green', 'red', 'blue'])
+
+    ax.set_xlabel('Sentiments')
+    ax.set_ylabel('Count')
+    ax.set_title('Sentiment Analysis')
+
+    # Save the plot to a BytesIO object
+    png_image = io.BytesIO()
+    fig.savefig(png_image, format='png')
+    png_image.seek(0)
+
+    # Convert the BytesIO object to a base64 string
+    png_base64 = base64.b64encode(png_image.getvalue()).decode('ascii')
+    
+    # Ensure the base64 string is properly formatted
+    response = f"data:image/png;base64,{png_base64}"
+    
+    # Print the response for debugging
+    print(response[:100])
+
+    return render_template("dashboard.html", 
+                           totalComments = totalComments, 
+                           negativeComments = negativeComments, 
+                           positiveComments = positiveComments, 
+                           neutralComments = neutralComments,
+                           response = response)
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -39,7 +39,7 @@
         .post {
             text-align: center;
             font-size: 1.2em;
-            margin: 7px 0;
+            margin: 20px 0;
             color: #333;
             font-family: 'Merriweather', serif;
         }
@@ -196,6 +196,10 @@
             <p>Number of Positive Comments: {{ positiveComments }}<span id="positiveComments"></span></p>
             <p>Number of Negative Comments: {{ negativeComments }}<span id="negativeComments"></span></p>
             <p>Number of Neutral Comments: {{ neutralComments }}<span id="neutralComments"></span></p>
+        </div>
+        <div>
+            <h2>Sentiment Analysis Bar Chart</h2>
+            <img src="{{ response }}" alt="Sentiment Analysis Bar Chart">
         </div>
     </div>
 
