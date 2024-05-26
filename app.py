@@ -4,6 +4,8 @@ import numpy as np
 import pandas as pd
 import nltk
 import pickle
+from dotenv import load_dotenv
+import os
 
 # Import functions for data preprocessing & data preparation
 from sklearn.preprocessing import LabelEncoder
@@ -20,9 +22,10 @@ from string import punctuation
 import nltk
 import re
 
+load_dotenv()
 api_service_name = "youtube"
 api_version = "v3"
-DEVELOPER_KEY = "AIzaSyD4ewMWP_BoxjLTG_zgMbRlycPvYs7vaZs"
+DEVELOPER_KEY = os.getenv("YT_API")
 
 app = Flask(__name__)
 

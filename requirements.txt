@@ -1,1 +1,11 @@
 flask
+googleapiclient
+numpy
+pandas
+nltk
+pickle
+dotenv
+os
+sklearn
+string
+re
